@@ -59,8 +59,8 @@ Things you may want to cover:
 |user_id|references|null: false ,foreign_key: true|
 
 ### Association
-- belongs_to :group :group
-- belongs_to :group :user
+- belongs_to :group 
+- belongs_to :user
 
 ## groups_usersテーブル
 
@@ -70,6 +70,6 @@ Things you may want to cover:
 |user_id|references|null: false ,foreign_key: true|
 
 ### Association
-- belongs_to :group :group
-- belongs_to :group :user
+- belongs_to :group
+- belongs_to :user
 
