@@ -3,35 +3,46 @@
   .chat-side
     .side-header
       .side-header__box
-        %p.side-header__box__user-name  
-      %ul.side-header__box__menu
-        %li.side-header__box__menu__new-group
-          %a{:href => "/users/new"}
+        %p.side-header__box__user-name  sakane
+        %ul.side-header__box__menu
+          %li.side-header__box__menu__new-group
+          =link_to "", class: "side-header__box__menu__new-group__icon" do
             %i.fa.fa-edit
+            %span<>
+          %li.side-header__box__menu__edit-header
+          =link_to "", class: "side-header__box__menu__edit-header__icon" do
+            %i.fa.fa-cog
+            %span<>
     .groups
-      .group
+      =link_to "", class: "group-link" do
+        .group
+          %p.group__group-name sakane
+          %p.group__latest-message メッセージ
   .chat-main
     .main-header
       .main-header__left-box
-        %h2.main-header__left-box__current-group
-          %ul.main-header__left-box__list
-            %li.main-header__left-box__member
-      %a{:href => "groups/edit"}
-        .main-header__edit-btn
+        %h2.main-header__left-box__current-group 
+        %ul.main-header__left-box-list 
+          %li.main-header__left-box-list__member
+      =link_to "", class: "main-header__edit" do
+        .main-header__edit__btn Edit
     .messages
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker sakane
+          %p.message__upper-info__date 2019/01/11
+        %p.message__text play
     .form
-      %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/groups/messages", :enctype => "multipart/form-data", :method => "post"}
+      %form.new-message{"accept-charset" => "UTF-8", :action => "/groups/messages", :enctype => "multipart/form-data", :method => "post"}
         %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-        %input{:name => "authenticity_token", :type => "hidden", :value => "pasFuWV2DO5wtGWQXBIx+M3eqrufr/WxCbhXGOb1F3vlAaxcpUQeyH4OK4cXbhUQDeUS7VsxQINNJ99QM/87EQ=="}/
+        %input{:name => "authenticity_token", :type => "hidden", :value => "pasFuWV2DO5wtGWQXBIx+M3eqrufr/WxCbhXGOb1F3v"}/
         .input-box
-          %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+          %input.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
           %label.input-box__image{:for => "message_image"}
             %i.fa.fa-image
-              %input#message_image.input-box__image__file{:name => "message[image]", :type => "file"}/
+            %input.input-box__image__file{:name => "message[image]", :type => "file"}/
         %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
 
-
-        
          
      
               
