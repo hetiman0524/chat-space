@@ -1,4 +1,5 @@
-.ilash-box
+.flash-box
+  .notice グループを作成しました。
 .wrapper
   .chat-side
     .side-header
@@ -33,14 +34,14 @@
           %p.message__upper-info__date 2019/01/11
         %p.message__text play
     .form
-      %form.new-message{"accept-charset" => "UTF-8", :action => "/groups/messages", :enctype => "multipart/form-data", :method => "post"}
-        %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-        %input{:name => "authenticity_token", :type => "hidden", :value => "pasFuWV2DO5wtGWQXBIx+M3eqrufr/WxCbhXGOb1F3v"}/
+      %form.new-message{"accept-charset":"UTF-8", action: "/groups/messages", enctype: "multipart/form-data", method: "post"}
+        %input{name: "utf8", type: "hidden", value: "✓"}/
+        %input{name: "authenticity_token", type: "hidden", value: "pasFuWV2DO5wtGWQXBIx+M3eqrufr/WxCbhXGOb1F3v"}/
         .input-box
-          %input.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-          %label.input-box__image{:for => "message_image"}
+          %input.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}/
+          %label.input-box__image{for: "message_image"}
             %i.fa.fa-image
-            %input.input-box__image__file{:name => "message[image]", :type => "file"}/
-        %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+            %input.input-box__image__file{name: "message[image]", type: "file"}/
+        %input.submit-btn{"data-disable-with":"Send", name: "commit", type: "submit", value: "Send"}/
 
 
