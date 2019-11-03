@@ -61,6 +61,11 @@
                      margin-top: 10px;
                      font-size: 14px;
                      color: $message-color;
+                     .lower-message__image {
+                        display: inline-block;
+                        height: 500px;
+                        width: 500px;
+                       }
                 }
         }
     }
