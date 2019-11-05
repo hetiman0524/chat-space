@@ -6,9 +6,11 @@
     .main-header
       .main-header__left-box
         %h2.main-header__left-box__current-group 
+        = @group.name
         %ul.main-header__left-box-list 
+          Member:
           %li.main-header__left-box-list__member
-      =link_to  group_messages_path, class: "main-header__edit" do
+      =link_to  edit_group_path(@group), class: "main-header__edit" do
         .main-header__edit__btn Edit
     .messages
       = render partial: 'message', collection: @messages
