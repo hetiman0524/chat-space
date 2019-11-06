@@ -16,23 +16,6 @@ $(function(){
                 return html;
         }
 
-        var buildMessageHTML = function(message) {
-               var content_tag = message.content.length > 0 ? 
-                 `<p class = "lower-message__content">${message.content}</p>` : "";
-                var image_tag = message.image.url ? 
-                 `<img src = ${message.image.url} ,class = "lower-message__image">`: "";
-
-                var html = ` <div class = "message" data-message-id="${message.id}">
-                                <div class = "essage__upper-info"></div>
-                                   <p class = "message__upper-info__talker"> ${message.name}</p>
-                                   <p class = "message__upper-info__date"> ${message.created_at}</p>
-                                <p class = "message__text">
-                                   ${content_tag }
-                                   ${image_tag }
-                                </p>`
-                return html;
-        };
-
         $('#new_message').on('submit', function(e){
                 e.preventDefault();
                 var formData = new FormData(this);
@@ -68,10 +51,9 @@ $(function(){
                   data: {id: last_message_id}
                 })
                 .done(function(messages) {
-                        console.log(messages);
                    var insertHTML = ' ';
                    messages.forEach(function (message){
-                   insertHTML = buildMessageHTML(message)
+                   insertHTML = buildHTML(message)
                    $('.messages').append(insertHTML)
                    })
                    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'fast');
