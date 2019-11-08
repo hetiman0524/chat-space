@@ -13,15 +13,15 @@
         &__left-box {
               margin-top: 35px;
               &__current-group {
-                    font-size: 20px;
+                    font-size: 18px;
                     color: #333;
                     margin-bottom: 15px;
+              }
+                &__list {
+                     display: flex;
+                     font-size: 12px;
+                     color: $data-color;
                 }
-               &__member-list {
-                        display: flex;
-                        font-size: 12px;
-                        color: $data-color;
-                }  
         }
         &__edit {
                 color: $swich-color;
@@ -37,7 +37,7 @@
         }
     }
     .messages {
-        height: calc(100vh - 190px);
+        height: calc(100vh - 280px);
         padding: 46px 40px;
         background-color: #fafafa;
         overflow: scroll;
@@ -46,26 +46,22 @@
                 &__upper-info {
                         border-bottom: 10px;
                         display: flex;
-                     &__talker {
-                        color: $message-color;
-                        font-size: 16px;
-                        font-weight: bold;
-                     }
-                     &__date {
-                           font-size: 12px;
-                           color: $data-color;
-                           margin-left: 10px;
-                     }
+                        &__talker  {
+                                color: $message-color;
+                                font-size: 16px;
+                                font-weight: bold;
+                        }
+                        &__date {
+                                font-size: 12px;
+                                color: $data-color;
+                                margin-left: 10px;
+
+                        }
                 }
                 &__text {
                      margin-top: 10px;
                      font-size: 14px;
                      color: $message-color;
-                     .lower-message__image {
-                        display: inline-block;
-                        height: 500px;
-                        width: 500px;
-                       }
                 }
         }
     }

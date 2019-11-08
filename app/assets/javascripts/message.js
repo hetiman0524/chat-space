@@ -1,4 +1,4 @@
-$(function(){
+$(document).on( "turbolinks:load", function(){
         function buildHTML(message){
                 var content_tag = message.content.length > 0 ? 
                  `<p class = "lower-message__content">${message.content}</p>` : "";
@@ -6,13 +6,11 @@ $(function(){
                  `<img src = ${message.image.url} ,class = "lower-message__image">`: "";
 
                 var html = ` <div class = "message" data-message-id="${message.id}">
-                                <div class = "essage__upper-info"></div>
-                                   <p class = "message__upper-info__talker"> ${message.name}</p>
-                                   <p class = "message__upper-info__date"> ${message.created_at}</p>
-                                <p class = "message__text">
-                                   ${content_tag }
-                                   ${image_tag }
-                                </p>`
+                                    <div class = "message__upper-info">
+                                      <p class = "message__upper-info__talker"> ${message.name}</p>
+                                      <p class = "message__upper-info__date"> ${message.created_at}</p>
+                                    </div>
+                                    <div class = "message__text">${content_tag } ${image_tag }</p> `
                 return html;
         }
 
@@ -37,6 +35,7 @@ $(function(){
                         return false
                 })
                 .fail(function() {
+                        $('.form__submit').removeAttr('disabled');
                         alert("メッセージ送信に失敗しました");
                  });
         })   
@@ -51,12 +50,15 @@ $(function(){
                   data: {id: last_message_id}
                 })
                 .done(function(messages) {
-                   var insertHTML = ' ';
-                   messages.forEach(function (message){
-                   insertHTML = buildHTML(message)
-                   $('.messages').append(insertHTML)
-                   })
-                   $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'fast');
+                        if (messages.length == 0) {
+                                return false;
+                        }
+                        var insertHTML = ' ';
+                        messages.forEach(function (message){
+                        insertHTML = buildHTML(message)
+                        $('.messages').append(insertHTML)
+                        })
+                        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'fast');
                 })
                 .fail(function() {
                     alert('自動更新に失敗しました');
